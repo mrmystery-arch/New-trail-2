@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>hello sasori Amma </title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, #ff4e50, #fc913a);
+    font-family: Arial;
+    overflow: hidden;
+}
+
+h1 {
+    color: white;
+    font-size: 28px;
+    text-align: center;
+    animation: glow 2s infinite alternate;
+}
+
+img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 4px solid white;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px #fff; }
+    to { text-shadow: 0 0 25px #ff99cc, 0 0 40px #ff66cc; }
+}
+
+/* hearts */
+.heart {
+    position: absolute;
+    font-size: 20px;
+    animation: float 6s linear infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(100vh); }
+    100% { transform: translateY(-10vh); }
+}
+
+/* popup */
+#popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+#popup button {
+    padding: 8px 15px;
+    border: none;
+    background: #ff4e50;
+    color: white;
+    border-radius: 10px;
+}
+</style>
+
+</head>
+
+<body onclick="showPopup()">
+<a href="https://ibb.co.com/jnSKRS4"><img src="https://i.ibb.co.com/jnSKRS4/1776253905985.jpg" alt="1776253905985" border="0"></a>
+
+<h1>Sasori mahi apni onek sundor<br>onek onek sundor 💖</h1>
+
+<!-- popup -->
+<div id="popup">
+    <h2>💖 Surprise! 💖</h2>
+    <p>Tumi asolei onek beshi sundor 😍</p>
+    <button onclick="closePopup()">OK</button>
+</div>
+
+<!-- music -->
+<audio id="music" loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-love.mp3">
+</audio>
+
+<script>
+function showPopup() {
+    document.getElementById("popup").style.transform = "translate(-50%, -50%) scale(1)";
+    document.getElementById("music").play();
+}
+
+function closePopup() {
+    document.getElementById("popup").style.transform = "translate(-50%, -50%) scale(0)";
+}
+
+// hearts
+for (let i = 0; i < 25; i++) {
+    let heart = document.createElement("div");
+    heart.innerHTML = "💖";
+    heart.className = "heart";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (3 + Math.random() * 5) + "s";
+    document.body.appendChild(heart);
+}
+</script>
+
+</body>
+</html>
